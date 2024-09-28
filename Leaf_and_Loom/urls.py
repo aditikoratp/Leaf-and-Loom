@@ -14,9 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
+
 from django.urls import path
+from . import views
+from django.urls import path, include
+from django.shortcuts import get_object_or_404
+
+app_name = 'leaf and loom'
+from .views import CustomLoginView
+from .views import register, login_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('register/', views.register, name='register'),
+    #path('login/', views.login_view, name='login'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+
+    #path('', views.home, name='home'),  # Add your home view if needed
+    # ... other URL patterns ...
+    #path('user/', views.user_profile_page, name='user_profile_page')
 ]
+
+
+

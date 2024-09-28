@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Restaurant
 
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -71,11 +70,6 @@ def login_view(request):
 
 
 
-def user_profile_page(request):  # add user id parameter
-    # add logic to check if user is signed in
-    # current_user = get_object_or_404(User, pk=user_id)
-    return render(request,
-                  "foodie/userPage.html")  # return render(request, "foodie/userPage.html", {'user_id' : user_id})
 
 
-def filter_restaurant(request):
+
